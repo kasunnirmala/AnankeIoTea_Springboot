@@ -84,17 +84,6 @@ public class BatchService {
         }
     }
 
-    @Transactional
-    public boolean updateBatch(String batchID, long endTimestamp) {
-        if (batchRepository.existsById(batchID)) {
-            BatchEntity batchEntity = batchRepository.findById(batchID).get();
-            batchEntity.setEndTimestamp(endTimestamp);
-            return true;
-        } else {
-            return false;
-        }
-    }
-
 
     public JSONObject stopBatch(Map<String, Object> payload) {
         String batchID = payload.get("batchID").toString();

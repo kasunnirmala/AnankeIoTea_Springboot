@@ -10,6 +10,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping(path = "/api/v1/batch")
+@CrossOrigin(origins = "*")
 public class BatchController {
     @Autowired
     BatchService batchService;
@@ -46,10 +47,4 @@ public class BatchController {
         return batchService.deleteBatch(batchID);
     }
 
-//    @PutMapping("update/{batchID}")
-//    public boolean updateBatch(
-//            @PathVariable("batchID") String batchID,
-//            @RequestParam(required = false) long endTimestamp) {
-//        return batchService.updateBatch(batchID, endTimestamp);
-//    }
 }
