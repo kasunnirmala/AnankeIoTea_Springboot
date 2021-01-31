@@ -20,6 +20,11 @@ public class BatchController {
         return batchService.getAllBatches();
     }
 
+    @GetMapping("/getAllFinished")
+    public List<BatchEntity> getAllFinishedBatches() {
+        return batchService.getAllFinishedBatches();
+    }
+
     @GetMapping("/getAllRunning/{teaFactoryID}")
     public List<BatchEntity> getAllRunningBatches(@PathVariable String teaFactoryID) {
         return batchService.getAllRunningBatches(teaFactoryID);

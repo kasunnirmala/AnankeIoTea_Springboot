@@ -18,5 +18,8 @@ public interface BatchRepository extends MongoRepository<BatchEntity, String> {
     @Query("{'status':true,'teaFactory.id':?0}")
     public List<BatchEntity> getAllRunning(String teaFactoryID);
 
+    @Query("{'status':false}")
+    public List<BatchEntity> allFinished();
+
 
 }

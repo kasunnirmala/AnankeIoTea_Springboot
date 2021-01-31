@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "/api/v1/trough")
+@CrossOrigin(origins = "*")
 public class TroughController {
     @Autowired
     TroughService troughService;

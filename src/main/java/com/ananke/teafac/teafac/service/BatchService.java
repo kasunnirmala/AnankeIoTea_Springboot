@@ -113,4 +113,8 @@ public class BatchService {
     public List<BatchEntity> getAllRunningBatches(String teaFactoryID) {
         return batchRepository.getAllRunning(teaFactoryID);
     }
+
+    public List<BatchEntity> getAllFinishedBatches() {
+        return batchRepository.allFinished();
+    }
 }

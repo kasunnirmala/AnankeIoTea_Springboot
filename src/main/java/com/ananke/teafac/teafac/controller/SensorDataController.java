@@ -28,8 +28,12 @@ public class SensorDataController {
     @GetMapping("/getWitheringWithTroughID/{db_trough_id}")
     public List<Document> getWitheringWithTroughID(@PathVariable int db_trough_id) {
         DateTimeZone timeZone = DateTimeZone.forID("Asia/Colombo");
+//        long endTimeStamp = new DateTime(timeZone).minusDays(1).getMillis();
+//        long startTimeStamp = new DateTime(timeZone).minusDays(1).minusDays(1).getMillis();
+
         long endTimeStamp = new DateTime(timeZone).getMillis();
         long startTimeStamp = new DateTime(timeZone).minusDays(1).getMillis();
+
         return sensorDataService.byTroughNumIDAndDateRange(startTimeStamp, endTimeStamp, db_trough_id);
     }
 
