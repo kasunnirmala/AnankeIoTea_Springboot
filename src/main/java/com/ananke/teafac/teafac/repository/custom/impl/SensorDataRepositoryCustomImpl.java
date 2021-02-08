@@ -45,4 +45,19 @@ public class SensorDataRepositoryCustomImpl implements SensorDataRepositoryCusto
         );
         return mongoTemplate.aggregate(aggregation, "devicedatas", Document.class).getMappedResults();
     }
+
+    @Override
+    public List<Document> getLastSensorRaw(String date) {
+        Aggregation aggregation = newAggregation(match(
+                Criteria.where("date").is(date)),
+                sort(Sort.Direction.ASC, "timestamp"),
+                group("node_id")
+                        .first("trough_id").as("trough_id")
+                        .last(ROOT).as("data")
+//                group("trough_id")
+//                        .push("data").as("data"),
+//                sort(Sort.Direction.ASC, "_id")
+        );
+        return mongoTemplate.aggregate(aggregation, "devicedatas", Document.class).getMappedResults();
+    }
 }

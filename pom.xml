@@ -12,6 +12,7 @@
     <artifactId>teafac</artifactId>
     <version>0.0.1</version>
     <name>teafac</name>
+    <packaging>war</packaging>
     <description>Ananke TeaFactory Solution</description>
     <properties>
         <java.version>1.8</java.version>
@@ -42,6 +43,11 @@
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
             <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
         </dependency>
 <!--        <dependency>-->
 <!--            <groupId>mysql</groupId>-->

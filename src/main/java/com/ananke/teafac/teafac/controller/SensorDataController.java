@@ -28,9 +28,6 @@ public class SensorDataController {
     @GetMapping("/getWitheringWithTroughID/{db_trough_id}")
     public List<Document> getWitheringWithTroughID(@PathVariable int db_trough_id) {
         DateTimeZone timeZone = DateTimeZone.forID("Asia/Colombo");
-//        long endTimeStamp = new DateTime(timeZone).minusDays(1).getMillis();
-//        long startTimeStamp = new DateTime(timeZone).minusDays(1).minusDays(1).getMillis();
-
         long endTimeStamp = new DateTime(timeZone).getMillis();
         long startTimeStamp = new DateTime(timeZone).minusDays(1).getMillis();
 
@@ -43,6 +40,11 @@ public class SensorDataController {
         long endTimeStamp = new DateTime(timeZone).getMillis();
         long startTimeStamp = new DateTime(timeZone).minusHours(1).getMillis();
         return sensorDataService.getWitheringAllArrayGroupByTrough(startTimeStamp, endTimeStamp);
+    }
+
+    @GetMapping("/getLastSensorRaw/{date}")
+    public List<Document> getLastSensorRaw(@PathVariable String date) {
+        return sensorDataService.getLastSensorRaw(date);
     }
 
 

@@ -33,4 +33,8 @@ public class SensorDataService {
     public List<Document> getWitheringAllArrayGroupByTrough(long startTimeStamp, long endTimeStamp) {
         return sensorDataRepository.arrayGroupByTrough(startTimeStamp, endTimeStamp);
     }
+
+    public List<Document> getLastSensorRaw(String date) {
+        return sensorDataRepository.getLastSensorRaw(date);
+    }
 }
